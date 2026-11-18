@@ -12,4 +12,4 @@ A simple Python console application for managing student tasks.
 - Python
 - Git
 - GitHub
-Project status: In Progress
+Project status: In Progress - Documentation Updated
