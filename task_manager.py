@@ -6,6 +6,14 @@ class TaskManager:
     def validate_title(self, title):
         return bool(title and title.strip())
 
+    def get_task(self, task_id):
+        for task in self.tasks:
+            if task["id"] == task_id:
+                return task
+
+        return None
+
+
     def add_task(self, title):
 
         if not self.validate_title(title):
@@ -32,3 +40,12 @@ class TaskManager:
             print(
                 f'{task["id"]}. {task["title"]} - {status}'
             )
+
+    def complete_task(self, task_id):
+        task = self.get_task(task_id)
+
+        if task is None:
+            return False
+
+        task["completed"] = True
+        return True
