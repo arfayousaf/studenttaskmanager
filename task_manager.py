@@ -41,11 +41,11 @@ class TaskManager:
                 f'{task["id"]}. {task["title"]} - {status}'
             )
 
-    def complete_task(self, task_id):
+    def delete_task(self, task_id):
         task = self.get_task(task_id)
 
         if task is None:
             return False
 
-        task["completed"] = True
+        self.tasks.remove(task)
         return True
