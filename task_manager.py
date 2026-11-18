@@ -3,10 +3,12 @@ class TaskManager:
     def __init__(self):
         self.tasks = []
         self.next_id = 1
+    def validate_title(self, title):
+        return bool(title and title.strip())
 
     def add_task(self, title):
 
-        if not title or not title.strip():
+        if not self.validate_title(title):
             raise ValueError("Task title cannot be empty.")
 
         task = {
