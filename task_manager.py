@@ -28,9 +28,10 @@ class TaskManager:
             )
 
     def delete_task(self, task_id):
-        for task in self.tasks:
-            if task["id"] == task_id:
-                self.tasks.remove(task)
-                return True
+        task = self.get_task(task_id)
 
-        return False
+        if task is None:
+            return False
+
+        self.tasks.remove(task)
+        return True
